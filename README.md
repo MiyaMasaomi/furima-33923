@@ -36,11 +36,6 @@
 
 -belongs_to :user
 -has_one :purchase_record
--belongs_to_active_hash :category
--belongs_to_active_hash :item_condition_type
--belongs_to_active_hash :postage
--belongs_to_active_hash :shipping_area
--belongs_to_active_hash :days_to_ship
 
 # -has_many :comments(追加実装のため、現時点ではしない)
 
@@ -55,7 +50,7 @@
 
 -belongs_to :user
 -has_one :shipping_address
--belongs_to : :item
+-belongs_to :item
 
 ## shipping_addresses テーブル
 
