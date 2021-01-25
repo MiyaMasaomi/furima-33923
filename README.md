@@ -25,7 +25,7 @@
 |name                   |string     |null:false                    |
 |description            |text       |null:false                    |
 |price                  |integer    |null:false                    |
-|category               |integer    |null:false                    |
+|category_id            |integer    |null:false                    |
 |condition_type_id      |integer    |null:false                    |
 |postage_id             |integer    |null:false                    |
 |shipping_area_id       |integer    |null:false                    |
@@ -44,7 +44,7 @@
 
 # -has_many :comments(追加実装のため、現時点ではしない)
 
-## purchase_record テーブル
+## purchase_records テーブル
 
 |Column|Type       |Options                        |
 |------|-----------|-------------------------------|
@@ -57,11 +57,11 @@
 -has_one :shipping_address
 -belongs_to : :item
 
-## shipping_address テーブル
+## shipping_addresses テーブル
 
 |Column          |Type       |Options                       |
 |--------------- |-----------|------------------------------|
-|postal_code_id  |string     |null:false                    |
+|postal_code     |string     |null:false                    |
 |prefecture_id   |integer    |null:false                    |
 |municipalities  |string     |null:false                    |
 |address         |string     |null:false                    |
@@ -71,10 +71,7 @@
 
 ### Association
 
--belongs_to_active_hash :buyer_postal_code_id
--belongs_to_active_hash :buyer_prefecture_id
 -belongs_to :purchase_record
-
 
 ## comments テーブル(追加実装のため、現時点ではしない)
 
