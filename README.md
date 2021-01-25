@@ -35,12 +35,13 @@
 ### Association
 
 -belongs_to :user
+-belongs_to :purchase_record
 -belongs_to_active_hash :category
 -belongs_to_active_hash :item_condition_type
 -belongs_to_active_hash :postage
 -belongs_to_active_hash :shipping_area
 -belongs_to_active_hash :days_to_ship
--has_one :purchase_record
+
 # -has_many :comments(追加実装のため、現時点ではしない)
 
 ## purchase_record テーブル
@@ -53,8 +54,8 @@
 ### Association
 
 -belongs_to :user
+-belongs_to :shipping_address
 -has_one : :item
--has_one :shipping_address
 
 ## shipping_address テーブル
 
@@ -73,6 +74,7 @@
 -belongs_to_active_hash :buyer_postal_code_id
 -belongs_to_active_hash :buyer_prefecture_id
 -has_one :purchase_record
+
 
 ## comments テーブル(追加実装のため、現時点ではしない)
 
