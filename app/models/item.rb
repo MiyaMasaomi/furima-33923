@@ -20,5 +20,7 @@ class Item < ApplicationRecord
       validates :days_to_ship_id
     end
   end
-  validates :price,presence: true, format: { with: /\A[0-9]+\z/ }
+
+  validates :price,numericality: true
+  validates :image,presence:{ message:'there is no image' }
 end
