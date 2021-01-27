@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :item
+
   with_options presence: true do
     validates :nickname
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
