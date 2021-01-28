@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it 'categoryが1では登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it 'condition_type_idが1では登録できない' do
-        @item.condition_type_id = '1'
+        @item.condition_type_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition type must be other than 1")
       end
       it 'postage_idが1では登録できない' do
-        @item.postage_id = '1'
+        @item.postage_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage must be other than 1")
       end
       it 'shipping_area_idが1では登録できない' do
-        @item.shipping_area_id = '1'
+        @item.shipping_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
       end
       it 'days_to_ship_idが1では登録できない' do
-        @item.days_to_ship_id = '1'
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
       end
@@ -63,7 +63,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it 'priceが¥300未満だと保存できない' do
-        @item.price = "100"
+        @item.price = "299"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than 300")
       end
