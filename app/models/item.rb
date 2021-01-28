@@ -21,6 +21,6 @@ class Item < ApplicationRecord
     end
   end
 
-  validates :price,numericality: true
+  validates :price,numericality:{greater_than:300,less_than:9999999}
   validates :image,presence:{ message:'there is no image' }
 end
