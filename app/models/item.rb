@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :name
     validates :description
   end
-  
+
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :condition_type_id
@@ -22,6 +22,8 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
   end
 
-  validates :price,numericality:{only_integer: true,greater_than:299,less_than:10000000}
-  validates :image,presence:{ message:'there is no image' }
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
+  validates :image, presence: { message: 'there is no image' }
+
+  default_scope -> { order(created_at: :desc) }
 end
