@@ -21,6 +21,16 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空では登録できない' do
+        @order_address.user_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録できない' do
+        @order_address.item_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item can't be blank")
+      end
       it 'postal_codeが空では登録できない' do
         @order_address.postal_code = nil
         @order_address.valid?
@@ -29,7 +39,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeにハイフンが含まれていなければ登録できない' do
         @order_address.postal_code = '0000000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'shipping_area_idが１では登録できない' do
         @order_address.shipping_area_id = 1
@@ -52,9 +62,9 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが11桁以内でなければ登録できない' do
-        @order_address.phone_number = "111111111111"
+        @order_address.phone_number = '111111111111'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number please enter within 11 digits")
+        expect(@order_address.errors.full_messages).to include('Phone number please enter within 11 digits')
       end
     end
   end

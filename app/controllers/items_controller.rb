@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :different_item, only: [:edit, :update, :destroy]
-  before_action :same_user_index, only: [:edit]
+  before_action :move_to_index, only: [:edit]
 
   def index
     @items = Item.all
@@ -58,9 +58,7 @@ class ItemsController < ApplicationController
     redirect_to action: :index if current_user.id != @item.user_id
   end
 
-  def same_user_index
-    unless @item.order.blank?
-      redirect_to root_path
-    end
+  def move_to_index
+    redirect_to root_path unless @item.order.blank?
   end
 end

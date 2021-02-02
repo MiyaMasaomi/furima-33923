@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-
   with_options presence: true do
     validates :name
     validates :description
