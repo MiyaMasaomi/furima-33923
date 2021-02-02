@@ -66,6 +66,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number please enter within 11 digits')
       end
+      it 'phone_numberが英数字混合では登録できない' do
+        @order_address.phone_number = "a1a1a1a1a1a1"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number please enter within 11 digits")
+      end
     end
   end
 end
