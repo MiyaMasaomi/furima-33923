@@ -54,6 +54,6 @@ class ItemsController < ApplicationController
   end
 
   def different_item
-    redirect_to action: :index if current_user.id != @item.user_id
+    redirect_to action: :index if current_user.id != @item.user_id || @item.order
   end
 end
