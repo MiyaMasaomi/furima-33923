@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../card.js")
+require('./preview')
 require("../item_price.js");
 
 
