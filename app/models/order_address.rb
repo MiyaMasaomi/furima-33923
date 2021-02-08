@@ -7,11 +7,11 @@ class OrderAddress
     validates :user_id
     validates :item_id
     validates :token
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :shipping_area_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'にはハイフン（ー）を含めてください' }
+    validates :shipping_area_id, numericality: { other_than: 1, message: "を選んでください" }
     validates :municipalities
     validates :purchaser_address
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'please enter within 11 digits' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は１１桁までの数値を入力してください' }
   end
 
   def save
