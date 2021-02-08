@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :description
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'が選択されていません' } do
     validates :category_id
     validates :condition_type_id
     validates :postage_id
@@ -24,7 +24,7 @@ class Item < ApplicationRecord
   end
 
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
-  validates :image, presence: { message: 'there is no image' }
+  validates :image, presence: { message: 'が選択されていません' }
 
   default_scope -> { order(created_at: :desc) }
 end
