@@ -6,7 +6,7 @@
 |------------------ |------ |------------------------|
 |nickname           |string |null:false              |
 |email              |string |null:false,unique: true |
-|encrypted_password |string |null:false              |
+|password           |string |null:false              |
 |first_name         |string |null:false              |
 |last_name          |string |null:false              |
 |first_name_kana    |string |null:false              |
@@ -16,7 +16,7 @@
 ### Association
 
 -has_many :items
--has_many :purchase_records
+-has_many :orders
 
 ## items テーブル
 
@@ -34,10 +34,16 @@
 
 ### Association
 
+#ActiveHash
+-belongs_to :category
+-belongs_to :condition_type
+-belongs_to :postage
+-belongs_to :shipping_area
+-belongs_to :days_to_ship
+
 -belongs_to :user
 -has_one :order
-
-# -has_many :comments(追加実装のため、現時点ではしない)
+-has_one_attached :image
 
 ## orders テーブル
 
@@ -49,35 +55,69 @@
 ### Association
 
 -belongs_to :user
--has_one :address
 -belongs_to :item
+-has_one :address
 
-## addresses テーブル
-
-|Column          |Type       |Options                       |
-|--------------- |-----------|------------------------------|
-|postal_code     |string     |null:false                    |
-|prefecture_id   |integer    |null:false                    |
-|municipalities  |string     |null:false                    |
-|address         |string     |null:false                    |
-|building_name   |string     |                              |
-|phone_number    |string     |null:false                    |
-|order           |references |null: false, foreign_key: true|
+## address テーブル
 
 ### Association
 
 -belongs_to :order
 
-## comments テーブル(追加実装のため、現時点ではしない)
+## order_address テーブル
 
-|Column |Type       |Options                        |
-|-------|-----------|-------------------------------|
-|text   |text       |null: false                    |
-|user   |references |null: false, foreign_key: true |
-|item   |references |null: false, foreign_key: true |
+|Column            |Type       |Options                       |
+|----------------- |-----------|------------------------------|
+|postal_code       |string     |null:false                    |
+|shipping_area_id  |integer    |null:false                    |
+|municipalities    |string     |null:false                    |
+|purchaser_address |string     |null:false                    |
+|building_name     |string     |                              |
+|phone_number      |string     |null:false                    |
+|order             |references |null: false, foreign_key: true|
 
+#アプリケーション名
+  フリマアプリのクローンサイト
 
-### Association
+#アプリケーション概要
+  ユーザー登録をすれば、ものを出品したり出品されているものを買ったりすることができます
 
--belongs_to :item
--belongs_to :user
+#URL
+  http/////
+
+#テスト用アカウント
+  BASIC:masaomi,1111
+  テスト太郎：test1@sample.com,aaaaa1
+  テスト太郎２：test2@sample.com,aaaaa1
+
+#テスト決済用のカード情報
+  カード情報：4242424242424242
+  セキュリティコード:123
+  有効期限：33年3月3日(現時点以降でも可)
+
+#利用方法
+  新規登録・ログインしていただき、商品を出品したり、購入したりすることができます。
+  また、ログインしていない方でも商品の詳細を見ることができます。
+
+#目指した課題解決
+  家にある不要なものを必要と思っていただける方に売買ができるシステムです。
+
+#洗い出した要件
+  ユーザー管理機能
+  商品出品機能
+  商品一覧表示機能
+  商品情報編集機能
+  商品詳細表示機能
+  商品削除機能
+  商品購入機能
+  S3、AWSの導入による画像保持機能
+
+#実装した機能についてのGIFと説明
+  
+#実装予定の機能
+  コメント投稿機能
+
+#データベース設計
+
+#ローカルでの動作方法
+  
