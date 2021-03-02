@@ -1,4 +1,4 @@
-#テーブル設計
+# テーブル設計
 
 ## users テーブル
 
@@ -34,7 +34,7 @@
 
 ### Association
   
-# ActiveHash
+#### ActiveHash
 -belongs_to :category  
 -belongs_to :condition_type  
 -belongs_to :postage  
