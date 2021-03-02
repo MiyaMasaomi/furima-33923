@@ -15,7 +15,7 @@
 
 ### Association
 
--has_many :items
+-has_many :items  
 -has_many :orders
 
 ## items テーブル
@@ -33,17 +33,17 @@
 |user                   |references |null: false, foreign_key: true|
 
 ### Association
-
-#ActiveHash
--belongs_to :category
--belongs_to :condition_type
--belongs_to :postage
--belongs_to :shipping_area
--belongs_to :days_to_ship
-
--belongs_to :user
--has_one :order
--has_one_attached :image
+  
+# ActiveHash
+-belongs_to :category  
+-belongs_to :condition_type  
+-belongs_to :postage  
+-belongs_to :shipping_area  
+-belongs_to :days_to_ship  
+  
+-belongs_to :user  
+-has_one :order  
+-has_one_attached :image  
 
 ## orders テーブル
 
@@ -54,8 +54,8 @@
 
 ### Association
 
--belongs_to :user
--belongs_to :item
+-belongs_to :user  
+-belongs_to :item  
 -has_one :address
 
 ## address テーブル
