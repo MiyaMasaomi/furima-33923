@@ -94,6 +94,7 @@
   ユーザー名：テスト太郎  
   メールアドレス：test1@sample.com  
   パスワード：aaaaa1  
+  
   ユーザー名：テスト太郎２  
   メールアドレス：test2@sample.com  
   パスワード：aaaaa1  
@@ -121,7 +122,7 @@
   S3、AWSの導入による画像保持機能
 
 ## 実装した機能についてのGIFと説明
-
+  https://i.gyazo.com/cbda95ad3ca9aa82dcffbe1712f9f2c8.gif
   
 ## 実装予定の機能
   コメント投稿機能
@@ -135,7 +136,7 @@ https://i.gyazo.com/d30577ba73f5386cc97dbef10d2fc44a.png
 ruby 2.6.5  
 rails 6.0.3.4  
 
-git clone  
+git clone https://github.com/MiyaMasaomi/furima-33923.git
 
 bundle install  
 
